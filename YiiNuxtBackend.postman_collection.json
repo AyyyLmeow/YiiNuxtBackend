@@ -12,16 +12,55 @@
 				{
 					"name": "Sign Up",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://yiitask2back/api/sign-up/signup",
+							"protocol": "http",
+							"host": [
+								"yiitask2back"
+							],
+							"path": [
+								"api",
+								"sign-up",
+								"signup"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Login",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "YiiNuxtBack:80/api/auth/login",
+							"host": [
+								"YiiNuxtBack"
+							],
+							"port": "80",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
 					},
 					"response": []
 				}
@@ -34,31 +73,134 @@
 					"name": "Note Index",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://YiiNuxtBack:80/api/note",
+							"protocol": "http",
+							"host": [
+								"YiiNuxtBack"
+							],
+							"port": "80",
+							"path": [
+								"api",
+								"note"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Create",
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6IlVOSVFVRS1KV1QtSURFTlRJRklFUiJ9.eyJpc3MiOiJodHRwOlwvXC95aWl0YXNrMmZyb250OjgxXC8iLCJhdWQiOiJodHRwOlwvXC95aWl0YXNrMmZyb250OjgxXC8iLCJqdGkiOiJVTklRVUUtSldULUlERU5USUZJRVIiLCJpYXQiOjE3MDc3NDQzNzUsImV4cCI6MTcwNzc2NTk3NSwidWlkIjo2fQ.YoOXgw6B32Naw3ElBGYdX2f8aMKHOWdJpRIZ3yO8fjA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://YiiNuxtBack:80/api/note/create",
+							"protocol": "http",
+							"host": [
+								"YiiNuxtBack"
+							],
+							"port": "80",
+							"path": [
+								"api",
+								"note",
+								"create"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Update",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://YiiNuxtBack:80/api/note/update?id=",
+							"protocol": "http",
+							"host": [
+								"YiiNuxtBack"
+							],
+							"port": "80",
+							"path": [
+								"api",
+								"note",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "delete",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://YiiNuxtBack:80/api/note/delete?id=1",
+							"protocol": "http",
+							"host": [
+								"YiiNuxtBack"
+							],
+							"port": "80",
+							"path": [
+								"api",
+								"note",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
 					},
 					"response": []
 				}
