@@ -4,6 +4,7 @@ namespace backend\controllers\api;
 
 use app\models\UserRefreshTokens;
 use backend\models\UserInfo;
+use backend\services\SignUpService;
 use common\models\LoginForm;
 use common\models\User;
 use backend\models\SignupForm;
@@ -16,6 +17,14 @@ use yii\web\UploadedFile;
 
 class SignUpController extends ApiController
 {
+
+    private $service;
+
+    public function __construct($id, $module, $config = [], SignUpService $service)
+    {
+        parent::__construct($id, $module, $config);
+        $this->service = $service;
+    }
 
     public function behaviors()
     {
@@ -30,15 +39,7 @@ class SignUpController extends ApiController
     }
     public function actionSignup()
     {
-        $model = new SignupForm();
-        $model->password = Yii::$app->request->post('password');
-        $model->username = Yii::$app->request->post('username');
-        $model->email = Yii::$app->request->post('email');
-        $model->eventImage = UploadedFile::getInstance($model, 'photo_url');
-        if ($model->validate() && $model->signup()) {
-            return true;
-        }
-        return $model->getErrors();
+        $this->service->actionSignup();
     }
 
 }
